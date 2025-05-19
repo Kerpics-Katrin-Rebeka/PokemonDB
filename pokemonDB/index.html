@@ -2,14 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/style.css">
     <title>Pokedex</title>
   </head>
   <body>
     <h1 class="text-center">Pokedex api</h1>
     <div class="container">
+      <div class="row ">
+          <div class="col-12  div_height">
+              <img class="mx-auto d-block border-radius border border-3 border-radius-1 rounded" src="./134.png"> 
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-12">
 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center">Name: <span id="pokemon_name">Vaporeon</span></h2>
+          <p>abilities: <span id="pokemon_abilities"></span></p>
+          <p>type(s): <span id="pokemon_type"></span></p>
+          <p>Base stats:</p>
+        </div>
+      </div>
     </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
