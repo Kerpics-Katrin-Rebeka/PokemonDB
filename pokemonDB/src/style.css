@@ -1,5 +1,5 @@
 .div_height{
-    height: 35vh;
+    height: 30vh;
 }
 
 img {
@@ -15,4 +15,14 @@ img {
 .float{
     float: right;
     margin-right: 40%;
+}
+
+.scroll-container {
+    overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.scroll-container img{
+    margin-right: 30px;
 }

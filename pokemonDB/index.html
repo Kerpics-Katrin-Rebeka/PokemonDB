@@ -8,14 +8,14 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <h1 class="text-center">Pokedex api</h1>
-    <div class="container">
-      <div class="row ">
+    <div class="container" style="height: 100vh;">
+          <h1 class="text-center">Pokedex api</h1>
+      <div class="row">
           <div class="col-12  div_height">
               <img class="mx-auto d-block border-radius border border-3 border-radius-1 rounded" id="Image" name="Image" src="./134.png"> 
             </div>
           </div>
-      <div class="row">
+      <div class="row" style="height: 35vh;">
         <div class="col-3"></div>
         <div class="col-6">
               <h2 class="text-center">Name: <span id="pokemon_name">Vaporeon</span></h2>
@@ -30,12 +30,21 @@
           </div>
         <div class="col-3"></div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-
+      <div class="row" style="max-width: 100%;">
+        <div class="col-12" style="height: 30vh; object-fit: contain;" id="Pokemons_scroll">
+          <div class="scroll-container" style="height: 25vh; object-fit: contain;">
+            <img class=" border-radius border border-3 border-radius-1 rounded-circle" src="./134.png" alt="Cinque Terre">
+            <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
+            <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
+            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
+             <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
+            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
+             <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
+            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
+          </div>
         </div>
       </div>
+            </div>
     </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
