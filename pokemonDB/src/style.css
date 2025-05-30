@@ -45,7 +45,36 @@ img {
     margin-right: 30px;
 }
 
-.selection{
-    border: 3px black solid;
+body{
+    background-color: crimson;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Pokemon Solid', sans-serif;
+                                                
 }
 
+.border {
+        border: 3px black solid;
+}
+
+.borders {
+        border: 3px black solid;
+        border-radius: 10px;
+}
+
+.whiteBG{
+    background-color: white;
+}
+
+.blueBG{
+    background-color: aqua;
+}
+
+.marginTypes{
+    margin: 5px;
+    padding: 10px;
+}
+
+.outline{
+    text-shadow: 2px 2px 2px #000000;  
+}

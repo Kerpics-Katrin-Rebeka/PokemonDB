@@ -1,80 +1,90 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./src/style.css">
-    <title>Pokedex</title>
-  </head>
-  <body>
-    <div class="container" style="height: 100vh;">
-          <h1 class="text-center">Pokedex api</h1>
-    <div class="row">
-      <div class="col-6">
-          <div class="col-12  div_height">
-              <img class="mx-auto d-block border-radius border border-3 border-radius-1 rounded" id="Image" name="Image" src="./134.png"> 
-            </div>
-          </div>
-                                    <div class="col-6" style="text-align: center;">
-                                      <label for="name">Pokemon name search</label>
-                                        <input type="text" id="name" name="name">
-                                        </select>
-                                    </div>
-          <div class="row" style="height: 35vh;">
-            <div class="col-6">
-                  <h2 class="text-center">Name: <span id="pokemon_name">Vaporeon</span></h2>
-                  <p class="margin"><span class="fw-bold" id="ability">ability:</span> <span id="pokemon_abilities" style="float: right;">water-absorb, hydration</span></p>
-                  <p class="margin"><span class="fw-bold" id="type">type:</span> <span id="pokemon_type" style="float: right;">Water</span></p>
-                    <div class="row">
-                      <div class="col-2"></div>
-                  <div class="col-4"><p><span class="fw-bold">HP:</span><span id="hp" class="float">130</span></p><p><span class="fw-bold">attack:</span><span id="attack" class="float">65</span></p><p><span class="fw-bold">defense:</span><span id="defense" class="float">60</span></p></div>
-                  <div class="col-6"><p><span class="fw-bold">Special attack:</span><span id="special-attack" class="float">110</span></p><p><span class="fw-bold">Special defense:</span><span id="special-defense" class="float">95</span></p><p><span class="fw-bold">Speed:</span><span id="speed" class="float">65</span></p></div>
-                    </div>
-                  </div>
-                  <div class="col-6" style="height: inherit;">
-                              <div class="col-12 scroll-container-types" id="Pokemons_scroll">
-                                  <div class="scroll-container-types-imgs" style="height: inherit;">
-                                    <img class=" border-radius border border-3 border-radius-1 rounded-circle" src="./134.png" alt="Cinque Terre">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                     <img class=" border-radius border border-3 border-radius-1 rounded-circle" src="./134.png" alt="Cinque Terre">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class=" border-radius border border-3 border-radius-1 rounded-circle" src="./134.png" alt="Cinque Terre">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                    <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-                                  </div>
-                              </div>
-                  </div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./src/style.css">
+      <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+      <title>Pokedex</title>
+   </head>
+   <body>
+      <div class="container" style="height: 100vh;">
+         <h1 class="text-center outline" style="margin-bottom: 2vh;color: white;">Pokedex api</h1>
+         <div class="row">
+            <div class="row">
+              <div class="col-6 whiteBG" style="padding: 0;border-top: 3px black solid;border-right: 3px black solid;border-left: 3px black solid;border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                <div class="col-12  div_height">
+                    <img class="mx-auto d-block border-radius border border-3 border-radius-1 rounded" id="Image" name="Image" src="/src/images/134.png"> 
+                </div>
+              </div>
+              <div class="col-6" style="text-align: center;">
+                <label for="name" class="outline" style="color: white;">Pokemon name search</label>
+                <input type="text" id="name" name="name">
+                </select>
               </div>
             </div>
-      <div class="row selection" style="max-width: 100%;">
-        <div class="col-12" style="height: 30vh; object-fit: contain;" id="Pokemons_scroll">
-          <div class="scroll-container" style="height: 25vh; object-fit: contain;">
-            <img class=" border-radius border border-3 border-radius-1 rounded-circle" src="./134.png" alt="Cinque Terre">
-            <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Forest">
-            <img class="border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Northern Lights">
-            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
-             <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
-            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
-             <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
-            <img class=" border-radius border border-3 border-radius-1 rounded-circle"  src="./134.png" alt="Mountains">
-          </div>
-        </div>
-      </div>
+            <div class="row" style="height: 35vh; margin-bottom: 1vh;">
+               <div class="col-6 whiteBG" style="border-bottom: 3px black solid;border-right: 3px black solid;border-left: 3px black solid;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                  <h2 class="text-center">Name: <span id="pokemon_name">Vaporeon</span></h2>
+                  <p class="margin"><span  id="ability">ability:</span> <span id="pokemon_abilities" style="float: right;">water-absorb, hydration</span></p>
+                  <p class="margin"><span  id="type">type:</span> <span id="pokemon_type" style="float: right;">Water</span></p>
+                  <div class="row">
+                     <div class="col-2"></div>
+                     <div class="col-4">
+                        <p><span >HP:</span><span id="hp" class="float">130</span></p>
+                        <p><span >attack:</span><span id="attack" class="float">65</span></p>
+                        <p><span >defense:</span><span id="defense" class="float">60</span></p>
+                     </div>
+                     <div class="col-6">
+                        <p><span >Special attack:</span><span id="special-attack" class="float">110</span></p>
+                        <p><span >Special defense:</span><span id="special-defense" class="float">95</span></p>
+                        <p><span >Speed:</span><span id="speed" class="float">65</span></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-6" style="height: inherit;">
+                  <div class="col-12 scroll-container-types borders" id="Pokemons_scroll">
+                     <div class="scroll-container-types-imgs whiteBG " style="height: inherit;padding: 12px;">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Bug.png" id="bug" alt="bug">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Dark.png" id="dark" alt="Dark">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Dragon.png" id="dragon" alt="dragon">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Electric.png" id="bug" alt="Electric">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Fairy.png" id="fairy" alt="Fairy">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Figthing.png" id="fighting" alt="Fighting">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Flying.png" id="flying" alt="Flying">                        
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Fire.png" id="fire" alt="Fire">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Ghost.png" id="ghost" alt="Ghost">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Grass.png" id="grass" alt="Grass">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Ground.png" id="ground" alt="Ground">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Normal.png" id="normal" alt="Normal">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Poison.png" id="poison" alt="Poison">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Psychic.png" id="pPsychic" alt="Psychic">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Rock.png" id="rock" alt="Rock">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Steel.png" id="steel" alt="Steel">
+                        <img class="marginTypes border-secondary border-radius border border-3 border-radius-1 rounded-circle" src="/src/images/Water.png" id="water" alt="Water">
+                     </div>
+                  </div>
+               </div>
             </div>
-    </div>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+         </div>
+         <div class="row selection" style="max-width: 100%;">
+            <div class="col-12" style="height: 30vh; object-fit: contain;" id="Pokemons_scroll">
+               <div class="scroll-container borders blueBG" style="height: 25vh; object-fit: contain;">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG" src="/src/images/134.png" alt="Cinque Terre">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Forest">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Northern Lights">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Mountains">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Mountains">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Mountains">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Mountains">
+                  <img class="border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG"  src="/src/images/134.png" alt="Mountains">
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div id="app"></div>
+      <script type="module" src="/src/main.js"></script>
+   </body>
 </html>
