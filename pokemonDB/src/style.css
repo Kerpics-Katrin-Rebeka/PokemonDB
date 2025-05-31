@@ -23,6 +23,10 @@ img {
   padding: 10px;
 }
 
+.scroll-container img{
+    margin: 0px 7.5px;
+}
+
 .scroll-container-types {
     width: 100%;
     height: 100%;
@@ -38,7 +42,7 @@ img {
 }
 
 .scroll-container-types-imgs img{
-   width: 30%;
+   width: 26%;
 }
 
 .scroll-container img{
@@ -59,7 +63,7 @@ body{
 
 .borders {
         border: 3px black solid;
-        border-radius: 10px;
+        border-radius: 20px;
 }
 
 .whiteBG{
@@ -67,14 +71,18 @@ body{
 }
 
 .blueBG{
-    background-color: aqua;
+    background-color: #7dd2fc;
 }
 
 .marginTypes{
-    margin: 10px 5px;
+    margin: 15px 15px;
     padding: 10px;
 }
 
 .outline{
     text-shadow: 2px 2px 2px #000000;  
+}
+
+.TextSize{
+    font-size: 25px;
 }
