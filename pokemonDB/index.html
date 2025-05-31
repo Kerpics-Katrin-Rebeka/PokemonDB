@@ -10,7 +10,7 @@
    </head>
    <body>
       <div class="container" style="height: 100vh;">
-         <h1 class="text-center outline" style="margin-bottom: 2vh;color: white;">Pokedex api</h1>
+         <h1 class="text-center outline" style="margin-bottom: 5vh;color: white;">Pokedex api</h1>
          <div class="row">
             <div class="row">
               <div class="col-6 whiteBG" style="padding: 0;border-top: 3px black solid;border-right: 3px black solid;border-left: 3px black solid;border-top-right-radius: 10px;border-top-left-radius: 10px;">
@@ -19,8 +19,14 @@
                 </div>
               </div>
               <div class="col-6" style="text-align: center;">
-                <label for="name" class="outline" style="color: white;">Pokemon name search</label>
-                <input type="text" id="name" name="name">
+                  <div class="input-group d-flex justify-content-center">
+                     <div class="input-group-prepend">
+                        <label for="name" class="outline col-form-label" style="color: white;">Pokemon name</label>
+                        <input class="form-control" type="text" id="name" name="name">
+                        <label for="numbah" class="outline col-form-label" style="color: white;">Pokemon id</label>
+                        <input class="form-control" type="number" id="numbah" name="numbah" min="0">
+                     </div>
+                  </div>
                 </select>
               </div>
             </div>
