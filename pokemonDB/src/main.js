@@ -6,6 +6,8 @@ const imgElement = document.getElementById('Image');
 const pokemonName = document.getElementById('pokemon_name');
 const pokemonAbilities = document.getElementById('pokemon_abilities');
 const pokemonType = document.getElementById('pokemon_type');
+const typeImages = document.querySelectorAll('.scroll-container-types-imgs img');
+
 
 const hpEl = document.getElementById('hp');
 const attackEl = document.getElementById('attack');
@@ -62,6 +64,7 @@ async function renderRandomPokemonRow(count = 8) {
       img.alt = pokemon.name;
       img.className = "border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG";
       img.style.cursor = 'pointer';
+      img.classList.add("pokemon-scroll-img");
 
       img.addEventListener('click', () => getPokemon(pokemon.name));
       scrollRow.appendChild(img);
@@ -78,6 +81,49 @@ async function fetchAllPokemonNames() {
     console.error('Failed to fetch all names:', err);
   }
 }
+
+
+typeImages.forEach(img => {
+  img.addEventListener('click', () => {
+    const type = img.alt.toLowerCase();
+
+    typeImages.forEach(i => i.classList.remove('selected-type'));
+    img.classList.add('selected-type');
+
+    renderPokemonByType(type);
+  });
+});
+
+async function renderPokemonByType(type, count = 8) {
+  scrollRow.innerHTML = '';
+  try {
+    const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
+    const allOfType = res.data.pokemon.map(p => p.pokemon.name);
+    const shuffled = allOfType.sort(() => 0.5 - Math.random()).slice(0, count);
+
+    for (const name of shuffled) {
+      try {
+        const pokeRes = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        const pokemon = pokeRes.data;
+
+        const img = document.createElement('img');
+        img.src = pokemon.sprites.front_default;
+        img.alt = pokemon.name;
+        img.className = "border-secondary border-radius border border-3 border-radius-1 rounded-circle whiteBG";
+        img.style.cursor = 'pointer';
+        img.classList.add("pokemon-scroll-img");
+
+        img.addEventListener('click', () => getPokemon(pokemon.name));
+        scrollRow.appendChild(img);
+      } catch (err) {
+        console.error(`Error loading Pokémon ${name}`, err);
+      }
+    }
+  } catch (err) {
+    console.error(`Could not fetch Pokémon of type ${type}`, err);
+  }
+}
+
 
 function updateSuggestions(query) {
   const listId = 'name-suggestions';
