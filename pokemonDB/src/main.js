@@ -16,6 +16,8 @@ const speedEl = document.getElementById('speed');
 
 const scrollRow = document.querySelector('.selection .scroll-container');
 
+let allPokemonNames = [];
+
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 async function getPokemon(query) {
@@ -24,15 +26,12 @@ async function getPokemon(query) {
     const data = response.data;
 
     imgElement.src = data.sprites.front_default;
-
     pokemonName.textContent = capitalize(data.name);
     pokemonAbilities.textContent = data.abilities.map(a => a.ability.name).join(', ');
     pokemonType.textContent = data.types.map(t => t.type.name).join(', ');
 
     const stats = {};
-    data.stats.forEach(stat => {
-      stats[stat.stat.name] = stat.base_stat;
-    });
+    data.stats.forEach(stat => stats[stat.stat.name] = stat.base_stat);
 
     hpEl.textContent = stats.hp;
     attackEl.textContent = stats.attack;
@@ -40,24 +39,23 @@ async function getPokemon(query) {
     spAtkEl.textContent = stats['special-attack'];
     spDefEl.textContent = stats['special-defense'];
     speedEl.textContent = stats.speed;
-  } catch (error) {
-    console.error('Pokémon not found:', query, error);
-    alert('Failed to fetch Pokémon. Try again.');
+  } catch (err) {
+    alert('Pokémon not found!');
   }
 }
 
 async function renderRandomPokemonRow(count = 8) {
-  scrollRow.innerHTML = ''; 
+  scrollRow.innerHTML = '';
   const usedIds = new Set();
 
   while (usedIds.size < count) {
-    const randomId = Math.floor(Math.random() * 898) + 1;
-    if (usedIds.has(randomId)) continue;
-    usedIds.add(randomId);
+    const id = Math.floor(Math.random() * 898) + 1;
+    if (usedIds.has(id)) continue;
+    usedIds.add(id);
 
     try {
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
-      const pokemon = response.data;
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const pokemon = res.data;
 
       const img = document.createElement('img');
       img.src = pokemon.sprites.front_default;
@@ -66,20 +64,53 @@ async function renderRandomPokemonRow(count = 8) {
       img.style.cursor = 'pointer';
 
       img.addEventListener('click', () => getPokemon(pokemon.name));
-
       scrollRow.appendChild(img);
-    } catch (error) {
-      console.warn('Skipping failed Pokémon ID:', randomId);
+    } catch {
     }
   }
 }
 
-nameInput.addEventListener('change', () => {
-  if (nameInput.value.trim()) getPokemon(nameInput.value.trim());
+async function fetchAllPokemonNames() {
+  try {
+    const res = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=10000');
+    allPokemonNames = res.data.results.map(p => p.name);
+  } catch (err) {
+    console.error('Failed to fetch all names:', err);
+  }
+}
+
+function updateSuggestions(query) {
+  const listId = 'name-suggestions';
+  let dataList = document.getElementById(listId);
+
+  if (!dataList) {
+    dataList = document.createElement('datalist');
+    dataList.id = listId;
+    document.body.appendChild(dataList);
+    nameInput.setAttribute('list', listId);
+  }
+
+  const filtered = allPokemonNames.filter(name => name.startsWith(query.toLowerCase())).slice(0, 10);
+  dataList.innerHTML = filtered.map(name => `<option value="${name}">`).join('');
+}
+
+nameInput.addEventListener('input', () => {
+  updateSuggestions(nameInput.value);
 });
+
+nameInput.addEventListener('change', () => {
+  if (nameInput.value.trim()) {
+    getPokemon(nameInput.value.trim());
+  }
+});
+
 idInput.addEventListener('change', () => {
-  if (idInput.value) getPokemon(idInput.value);
+  const val = parseInt(idInput.value);
+  if (!isNaN(val) && val > 0) {
+    getPokemon(val);
+  }
 });
 
 getPokemon('vaporeon');
 renderRandomPokemonRow();
+fetchAllPokemonNames();
